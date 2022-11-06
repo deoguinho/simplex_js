@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simplex</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
+    <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    <script src="js/tools.js"></script>
+    <script src="js/printArray.js"></script>
+    <script src="js/system.js"></script>
+    <script src="js/back.js"></script>
+    <script src="js/createObjFunction.js"></script>
+    <script src="js/createContraintes.js"></script>
+    <script src="js/getArray.js"></script>
+    <script src="js/simplex.js"></script>
+    <script src="js/graphic.js"></script>
+    <script src="js/setArray.js"></script>
+
+</head>
+
+<body>
+    <div id="simpleh" class="title">
+        <h2>Método simplex</h2>
+        <p>Grupo: Andre, Davi, Diogo, Lucas, Leonardo</p>
+    </div>
+    <div class="center_widget" id="init">
+        <section class="first">
+            <div>
+                <h3 class="title">Selecione o número de variáveis:</h3>
+                <div class="middle">
+                    <input type="button" value="-" onclick="var_dec()" />
+                    <input type="text" value="1" disabled="disabled" id="num_vars" size="7" style="text-align:right" />
+                    <input type="button" value="+" onclick="var_inc()" />
+                </div>
+
+                <div>
+                    <h3 class="title">Selecione o número de restrições :</h3>
+                    <div class="middle">
+                        <input type="button" value="-" onclick="cont_dec()" />
+                        <input type="text" value="1" disabled="disabled" id="num_conts" size="7"
+                            style="text-align:right" />
+                        <input type="button" value="+" onclick="cont_inc()" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="nextstep_container">
+            <input type="button" class="nextstep" value="Continuar &rarr;" onclick="setArray()"  />
+        </div>
+        <script src="js/inc_dec.js"></script>
+    </div>
+    
+    <div class="center_widget" id="array"></div>
+    <div id="table">
+        <h1>Método simplex</h1>
+        <div id="simp_sys"></div>
+    </div>
+    <div id="graphic">
+        <input type="button" value="← voltar" class="nextstep" onclick="backPage3()"
+            style="float: left; margin-top: 15px;">
+        <h1>Método gráfico</h1>
+        <div id="graph_sys"></div>
+        <canvas id="myCanvas" width="800" height="500" style="border:1px solid #d3d3d3;"></canvas>
+        <table id="graph_array" class='ilk-graph-table'>
+            <tr>
+                <th>Ponto</th>
+                <th>X1</th>
+                <th>X2</th>
+                <th>Valor da função objetiva (Z)</th>
+            </tr>
+        </table>
+        <div id="note" style="text-align: left; margin-left: 100px; color: #022022">
+            <h3>NOTA : </h3>
+            <h4>Na tabela/h4>
+                <ul>
+                    <li>Sobre <span style="color: #00ff00">verde</span>, os pontos para os quais encontramos a solução.
+                    </li>
+                    <li>Sobre <span style="color: #db0622">vermelho</span>, os pontos que não satisfazem as restrições.
+                    </li>
+                </ul>
+                <h4>No gráfico/h4>
+                    <ul>
+                        <li>Sobre <span style="color: #22e2ec">azul</span>, os pontos de intersecção</li>
+                        <li>Sobre <span style="color: #000000">preto</span>, pontos alcançáveis.</li>
+                        <li>Sobre <span style="color: #00ff00">verde</span>, o domínio viável.</li>
+                    </ul>
+        </div>
+        <input type="button" value="Registrar" onclick="window.print()" class="nextstep" style="float: none" />
+        <input id="non_borne" type="text" disabled="disabled" value="Problema ilimitado" />
+        <input id="irrealisable" type="text" disabled="disabled" value="Problema impraticável" />
+    </div>
+    <script>
+        document.getElementById('table').style.display = 'none';
+        document.getElementById('graphic').style.display = 'none';
+    </script>
+    <footer id="rights">
+        <hr />
+        <p>© Grupo da rapaziada</p>
+    </footer>
+</body>
+
+</html>
